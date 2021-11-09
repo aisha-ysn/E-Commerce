@@ -55,7 +55,7 @@ router.put('/:id', (req, res) => {
         })
         .then(dbTagData => {
             if (!dbTagData) {
-                res.status(404).json({ message: 'No product found under given id' });
+                res.status(404).json({ message: 'No tag found under given id' });
                 return;
             }
             res.json(dbTagData);
@@ -67,7 +67,6 @@ router.put('/:id', (req, res) => {
 });
 
 router.delete('/:i', (req, res) => {
-    // delete on tag by its `id` value
     Tag.destroy({
             where: {
                 id: req.params.id
